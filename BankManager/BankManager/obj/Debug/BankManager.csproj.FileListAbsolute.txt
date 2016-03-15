@@ -1,0 +1,1 @@
+D:\GitHub\BankManager\BankManager\bin\Debug\BankManager.exe.config
