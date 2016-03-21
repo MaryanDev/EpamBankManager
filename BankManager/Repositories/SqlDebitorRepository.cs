@@ -6,31 +6,37 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Entities;
+using System.IO;
 
-namespace BankManager
+namespace LoanManager
 {
-    class SqlDebitorRepository : IDebitorRepositary
+    public class SqlDebitorRepository : Repositories.SqlBaseRepository, IDebitorRepository
     {
-        private readonly string _connectionString;
+        #region Private fields
+        private const string spGetDebitorsQuery = "spGetDebitors";
+        private const string spNewDebitorQuery = "spAddNewDebitor";
+        #endregion
 
-        public SqlDebitorRepository(string connectionString)
+        #region Constructor
+        public SqlDebitorRepository(string connectionString) : base(connectionString)
         {
-            _connectionString = connectionString;
         }
+        #endregion
 
-        public IEnumerable<Debitor> GetDebitors(string firstName, string lastName, string phone)
+        #region Public methods
+        public IEnumerable<Debitor> GetDebitors(string firstName, string lastName, string address, string phone)
         {
-            using (SqlConnection connection = new SqlConnection(this._connectionString))
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
                 connection.Open();
-                using (SqlCommand command = new SqlCommand())
+                using (SqlCommand command = new SqlCommand(spGetDebitorsQuery, connection))
                 {
                     command.CommandType = System.Data.CommandType.StoredProcedure;
-                    command.CommandText = "sp_GetDebitors";
-                    command.Connection = connection;
 
                     command.Parameters.AddWithValue("@searchedFName", firstName);
                     command.Parameters.AddWithValue("@searchedLName", lastName);
+                    command.Parameters.AddWithValue("@searchedAddress", address);
                     command.Parameters.AddWithValue("@searchedPhone", phone);
 
                     using (SqlDataReader reader = command.ExecuteReader())
@@ -41,10 +47,12 @@ namespace BankManager
                         {
                             resultList.Add(new Debitor
                             {
-                                Id = int.Parse(reader["Id"].ToString()),
+                                Id = Convert.ToInt32(reader["Id"].ToString()),
                                 FirstName = reader["FirstName"].ToString(),
                                 LastName = reader["LastName"].ToString(),
-                                PhoneNumber = reader["PhoneNumber"].ToString()
+                                Address = reader["Address"].ToString(),
+                                PhoneNumber = reader["PhoneNumber"].ToString(),
+                                UserId = Convert.ToInt32(reader["UserId"].ToString())
                             });
                         }
 
@@ -56,14 +64,12 @@ namespace BankManager
 
         public IEnumerable<Debitor> GetDebitors()
         {
-            using (SqlConnection connection = new SqlConnection(this._connectionString))
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
                 connection.Open();
-                using (SqlCommand command = new SqlCommand())
+                using (SqlCommand command = new SqlCommand(spGetDebitorsQuery, connection))
                 {
                     command.CommandType = System.Data.CommandType.StoredProcedure;
-                    command.CommandText = "sp_GetDebitors";
-                    command.Connection = connection;
 
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
@@ -73,13 +79,14 @@ namespace BankManager
                         {
                             resultList.Add(new Debitor
                             {
-                                Id = int.Parse(reader["Id"].ToString()),
+                                Id = Convert.ToInt32(reader["Id"].ToString()),
                                 FirstName = reader["FirstName"].ToString(),
                                 LastName = reader["LastName"].ToString(),
-                                PhoneNumber = reader["PhoneNumber"].ToString()
+                                Address = reader["Address"].ToString(),
+                                PhoneNumber = reader["PhoneNumber"].ToString(),
+                                UserId = Convert.ToInt32(reader["UserId"].ToString())
                             });
                         }
-
                         return resultList;
                     }
                 }
@@ -88,17 +95,19 @@ namespace BankManager
 
         public int AddDebitor(Debitor newDebitor)
         {
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
                 connection.Open();
 
-                using (SqlCommand command = new SqlCommand("sp_AddNewDebitor", connection))
+                using (SqlCommand command = new SqlCommand(spNewDebitorQuery, connection))
                 {
                     command.CommandType = System.Data.CommandType.StoredProcedure;
 
                     command.Parameters.AddWithValue("@firstName", newDebitor.FirstName);
                     command.Parameters.AddWithValue("@lastName", newDebitor.LastName);
+                    command.Parameters.AddWithValue("@address", newDebitor.Address);
                     command.Parameters.AddWithValue("@phoneNumber", newDebitor.PhoneNumber);
+                    command.Parameters.AddWithValue("@userId", newDebitor.UserId);
 
                     SqlParameter newId = new SqlParameter("@newDebitorId", System.Data.SqlDbType.Int);
                     newId.Direction = System.Data.ParameterDirection.Output;
@@ -110,5 +119,27 @@ namespace BankManager
                 }
             }
         }
+
+        public override bool SaveTable()
+        {
+            IEnumerable<Debitor> debitors = GetDebitors();
+            try
+            {
+                using (StreamWriter writer = new StreamWriter(new FileStream("Debitors.csv", FileMode.Create)))
+                {
+                    writer.WriteLine(@"""Id"";""FirstName"";""LastName"";""Address"";""PhoneNumber"";""UserId"";");
+                    foreach (var debitor in debitors)
+                    {
+                        writer.WriteLine(@"""{0}"";""{1}"";""{2}"";""{3}"";""{4}"";""{5}"";", debitor.Id, debitor.FirstName, debitor.LastName, debitor.Address, debitor.PhoneNumber, debitor.UserId);
+                    }
+                }
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        #endregion
     }
 }

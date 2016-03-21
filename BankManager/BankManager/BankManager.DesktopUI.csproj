@@ -47,17 +47,38 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Code\CurrentUser.cs" />
+    <Compile Include="Code\Encryptor.cs" />
+    <Compile Include="CreditsGrid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CreditsGrid.Designer.cs">
+      <DependentUpon>CreditsGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DebitorsGrid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DebitorsGrid.Designer.cs">
+      <DependentUpon>DebitorsGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewPayment.Designer.cs">
+      <DependentUpon>NewPayment.cs</DependentUpon>
+    </Compile>
     <Compile Include="OpenCredit.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="OpenCredit.Designer.cs">
       <DependentUpon>OpenCredit.cs</DependentUpon>
     </Compile>
-    <Compile Include="TableClasses\Credit.cs" />
-    <Compile Include="TableClasses\Debitor.cs" />
-    <Compile Include="RepositoryInterfaces\ICreditRepositary.cs" />
-    <Compile Include="RepositoryInterfaces\IDebitorRepositary.cs" />
-    <Compile Include="RepositoryInterfaces\IPaymentRepositary.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,20 +91,37 @@
     <Compile Include="NewDebitor.Designer.cs">
       <DependentUpon>NewDebitor.cs</DependentUpon>
     </Compile>
-    <Compile Include="TableClasses\Payment.cs" />
+    <Compile Include="PaymentsGrid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PaymentsGrid.Designer.cs">
+      <DependentUpon>PaymentsGrid.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SqlRepositoryClasses\SqlCreditRepositary.cs" />
-    <Compile Include="SqlRepositoryClasses\SqlDebitorRepository.cs" />
-    <Compile Include="SqlRepositoryClasses\SqlPaymentRepositary.cs" />
+    <EmbeddedResource Include="CreditsGrid.resx">
+      <DependentUpon>CreditsGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DebitorsGrid.resx">
+      <DependentUpon>DebitorsGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NewDebitor.resx">
       <DependentUpon>NewDebitor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="NewPayment.resx">
+      <DependentUpon>NewPayment.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="OpenCredit.resx">
       <DependentUpon>OpenCredit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PaymentsGrid.resx">
+      <DependentUpon>PaymentsGrid.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -109,7 +147,16 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Entities\BankManager.Entities.csproj">
+      <Project>{e866889e-39e8-4040-ab99-c0a88a023890}</Project>
+      <Name>BankManager.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Repositories\BankManager.Repositories.csproj">
+      <Project>{a1622e2f-6f9d-400b-8f48-a5f8087af565}</Project>
+      <Name>BankManager.Repositories</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

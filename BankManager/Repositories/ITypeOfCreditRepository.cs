@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Entities;
 
-namespace BankManager
+namespace Repositories
 {
-    interface IPaymentRepositary
+    interface ITypeOfCreditRepository
     {
-        IEnumerable<Payment> GetPayments();
+        IEnumerable<TypeOfCredit> GetTypes();
     }
 }

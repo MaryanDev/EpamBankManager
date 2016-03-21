@@ -8,8 +8,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Entities;
+using BankManager.Code;
 
-namespace BankManager
+namespace LoanManager
 {
     public partial class NewDebitor : Form
     {
@@ -30,7 +32,9 @@ namespace BankManager
             {
                 FirstName = txt_FirstName.Text,
                 LastName = txt_LastName.Text,
-                PhoneNumber = txt_PhoneNumber.Text
+                Address = txtAddress.Text,
+                PhoneNumber = txt_PhoneNumber.Text,
+                UserId = CurrentUser.Id
             };
             if(_debitorRepo.AddDebitor(newDebitor) != -1)
             {
@@ -40,11 +44,6 @@ namespace BankManager
             {
                 this.DialogResult = DialogResult.No;
             }
-        }
-
-        private void NewDebitor_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

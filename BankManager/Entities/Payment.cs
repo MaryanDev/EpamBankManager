@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BankManager
+namespace Entities
 {
-    class Payment
+    public class Payment
     {
+        #region Public properties
         public int Id { get; set; }
 
         public int CreditId { get; set; }
@@ -15,5 +16,8 @@ namespace BankManager
         public DateTime PaymentDate { get; set; }
 
         public decimal Amount { get; set; }
+
+        public int UserId { get; set; }
+        #endregion
     }
 }

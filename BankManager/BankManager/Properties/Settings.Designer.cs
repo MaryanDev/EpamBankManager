@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BankManager.Properties
+namespace LoanManager.Properties
 {
 
 

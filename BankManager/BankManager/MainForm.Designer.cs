@@ -1,4 +1,4 @@
-﻿namespace BankManager
+﻿namespace LoanManager
 {
     partial class MainForm
     {
@@ -30,15 +30,19 @@
         {
             this.components = new System.ComponentModel.Container();
             this.grbx_Data = new System.Windows.Forms.GroupBox();
-            this.dgv_Data = new System.Windows.Forms.DataGridView();
+            this.ucDebitorsGrid = new BankManager.DebitorsGrid();
+            this.ucCreditsGrid = new BankManager.CreditsGrid();
+            this.ucPaymentsGrid = new BankManager.PaymentsGrid();
             this.cntxms_GridMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.showAllDebitorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showAllCreditsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showAllPaymentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newDebitorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newCreditToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newPaymentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ms_main = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.debitorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addNewDebitorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,42 +50,66 @@
             this.openNewCreditToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.paymentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.passNewPaymentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.grbSearchForDebitor = new System.Windows.Forms.GroupBox();
+            this.btnSearchDebitors = new System.Windows.Forms.Button();
+            this.lblSearchedPhone = new System.Windows.Forms.Label();
+            this.txtSearchedPhone = new System.Windows.Forms.TextBox();
+            this.lblSearchedAddress = new System.Windows.Forms.Label();
+            this.txtSearchedAddress = new System.Windows.Forms.TextBox();
+            this.lblSearchedLastName = new System.Windows.Forms.Label();
+            this.txtSearchedLastName = new System.Windows.Forms.TextBox();
+            this.lblSearchedFirstName = new System.Windows.Forms.Label();
+            this.txtSearchedFirstName = new System.Windows.Forms.TextBox();
             this.grbx_Data.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_Data)).BeginInit();
             this.cntxms_GridMenu.SuspendLayout();
             this.ms_main.SuspendLayout();
+            this.grbSearchForDebitor.SuspendLayout();
             this.SuspendLayout();
             // 
             // grbx_Data
             // 
-            this.grbx_Data.Controls.Add(this.dgv_Data);
-            this.grbx_Data.Location = new System.Drawing.Point(12, 68);
+            this.grbx_Data.Controls.Add(this.ucDebitorsGrid);
+            this.grbx_Data.Controls.Add(this.ucCreditsGrid);
+            this.grbx_Data.Controls.Add(this.ucPaymentsGrid);
+            this.grbx_Data.Location = new System.Drawing.Point(12, 82);
             this.grbx_Data.Name = "grbx_Data";
-            this.grbx_Data.Size = new System.Drawing.Size(750, 380);
+            this.grbx_Data.Size = new System.Drawing.Size(830, 366);
             this.grbx_Data.TabIndex = 0;
             this.grbx_Data.TabStop = false;
             this.grbx_Data.Text = "Data";
             // 
-            // dgv_Data
+            // ucDebitorsGrid
             // 
-            this.dgv_Data.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgv_Data.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_Data.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_Data.Location = new System.Drawing.Point(3, 16);
-            this.dgv_Data.Name = "dgv_Data";
-            this.dgv_Data.Size = new System.Drawing.Size(744, 361);
-            this.dgv_Data.TabIndex = 0;
-            this.dgv_Data.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Data_CellDoubleClick);
-            this.dgv_Data.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgv_Data_MouseClick);
+            this.ucDebitorsGrid.Location = new System.Drawing.Point(0, 14);
+            this.ucDebitorsGrid.Name = "ucDebitorsGrid";
+            this.ucDebitorsGrid.Size = new System.Drawing.Size(830, 360);
+            this.ucDebitorsGrid.TabIndex = 3;
+            // 
+            // ucCreditsGrid
+            // 
+            this.ucCreditsGrid.Location = new System.Drawing.Point(0, 14);
+            this.ucCreditsGrid.Name = "ucCreditsGrid";
+            this.ucCreditsGrid.Size = new System.Drawing.Size(830, 360);
+            this.ucCreditsGrid.TabIndex = 2;
+            // 
+            // ucPaymentsGrid
+            // 
+            this.ucPaymentsGrid.Location = new System.Drawing.Point(0, 14);
+            this.ucPaymentsGrid.Name = "ucPaymentsGrid";
+            this.ucPaymentsGrid.Size = new System.Drawing.Size(830, 360);
+            this.ucPaymentsGrid.TabIndex = 1;
             // 
             // cntxms_GridMenu
             // 
             this.cntxms_GridMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.showAllDebitorsToolStripMenuItem,
             this.showAllCreditsToolStripMenuItem,
-            this.showAllPaymentsToolStripMenuItem});
+            this.showAllPaymentsToolStripMenuItem,
+            this.newDebitorToolStripMenuItem,
+            this.newCreditToolStripMenuItem,
+            this.newPaymentToolStripMenuItem});
             this.cntxms_GridMenu.Name = "cntxms_GridMenu";
-            this.cntxms_GridMenu.Size = new System.Drawing.Size(174, 70);
+            this.cntxms_GridMenu.Size = new System.Drawing.Size(174, 136);
             // 
             // showAllDebitorsToolStripMenuItem
             // 
@@ -102,6 +130,28 @@
             this.showAllPaymentsToolStripMenuItem.Name = "showAllPaymentsToolStripMenuItem";
             this.showAllPaymentsToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.showAllPaymentsToolStripMenuItem.Text = "Show all payments";
+            this.showAllPaymentsToolStripMenuItem.Click += new System.EventHandler(this.showAllPaymentsToolStripMenuItem_Click);
+            // 
+            // newDebitorToolStripMenuItem
+            // 
+            this.newDebitorToolStripMenuItem.Name = "newDebitorToolStripMenuItem";
+            this.newDebitorToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.newDebitorToolStripMenuItem.Text = "New debitor";
+            this.newDebitorToolStripMenuItem.Click += new System.EventHandler(this.newDebitorToolStripMenuItem_Click);
+            // 
+            // newCreditToolStripMenuItem
+            // 
+            this.newCreditToolStripMenuItem.Name = "newCreditToolStripMenuItem";
+            this.newCreditToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.newCreditToolStripMenuItem.Text = "New credit";
+            this.newCreditToolStripMenuItem.Click += new System.EventHandler(this.newCreditToolStripMenuItem_Click);
+            // 
+            // newPaymentToolStripMenuItem
+            // 
+            this.newPaymentToolStripMenuItem.Name = "newPaymentToolStripMenuItem";
+            this.newPaymentToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.newPaymentToolStripMenuItem.Text = "New payment";
+            this.newPaymentToolStripMenuItem.Click += new System.EventHandler(this.newPaymentToolStripMenuItem_Click);
             // 
             // ms_main
             // 
@@ -120,7 +170,6 @@
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.saveToolStripMenuItem,
-            this.aboutToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
@@ -131,12 +180,7 @@
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.saveToolStripMenuItem.Text = "Save";
-            // 
-            // aboutToolStripMenuItem
-            // 
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.aboutToolStripMenuItem.Text = "About";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
@@ -188,12 +232,106 @@
             this.passNewPaymentToolStripMenuItem.Name = "passNewPaymentToolStripMenuItem";
             this.passNewPaymentToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.passNewPaymentToolStripMenuItem.Text = "Pass new payment";
+            this.passNewPaymentToolStripMenuItem.Click += new System.EventHandler(this.passNewPaymentToolStripMenuItem_Click);
+            // 
+            // grbSearchForDebitor
+            // 
+            this.grbSearchForDebitor.Controls.Add(this.btnSearchDebitors);
+            this.grbSearchForDebitor.Controls.Add(this.lblSearchedPhone);
+            this.grbSearchForDebitor.Controls.Add(this.txtSearchedPhone);
+            this.grbSearchForDebitor.Controls.Add(this.lblSearchedAddress);
+            this.grbSearchForDebitor.Controls.Add(this.txtSearchedAddress);
+            this.grbSearchForDebitor.Controls.Add(this.lblSearchedLastName);
+            this.grbSearchForDebitor.Controls.Add(this.txtSearchedLastName);
+            this.grbSearchForDebitor.Controls.Add(this.lblSearchedFirstName);
+            this.grbSearchForDebitor.Controls.Add(this.txtSearchedFirstName);
+            this.grbSearchForDebitor.Location = new System.Drawing.Point(12, 27);
+            this.grbSearchForDebitor.Name = "grbSearchForDebitor";
+            this.grbSearchForDebitor.Size = new System.Drawing.Size(830, 49);
+            this.grbSearchForDebitor.TabIndex = 2;
+            this.grbSearchForDebitor.TabStop = false;
+            this.grbSearchForDebitor.Text = "Search Debitors";
+            // 
+            // btnSearchDebitors
+            // 
+            this.btnSearchDebitors.Location = new System.Drawing.Point(724, 16);
+            this.btnSearchDebitors.Name = "btnSearchDebitors";
+            this.btnSearchDebitors.Size = new System.Drawing.Size(100, 23);
+            this.btnSearchDebitors.TabIndex = 8;
+            this.btnSearchDebitors.Text = "Go";
+            this.btnSearchDebitors.UseVisualStyleBackColor = true;
+            this.btnSearchDebitors.Click += new System.EventHandler(this.btnSearchDebitors_Click);
+            // 
+            // lblSearchedPhone
+            // 
+            this.lblSearchedPhone.AutoSize = true;
+            this.lblSearchedPhone.Location = new System.Drawing.Point(535, 21);
+            this.lblSearchedPhone.Name = "lblSearchedPhone";
+            this.lblSearchedPhone.Size = new System.Drawing.Size(38, 13);
+            this.lblSearchedPhone.TabIndex = 7;
+            this.lblSearchedPhone.Text = "Phone";
+            // 
+            // txtSearchedPhone
+            // 
+            this.txtSearchedPhone.Location = new System.Drawing.Point(579, 18);
+            this.txtSearchedPhone.Name = "txtSearchedPhone";
+            this.txtSearchedPhone.Size = new System.Drawing.Size(109, 20);
+            this.txtSearchedPhone.TabIndex = 6;
+            // 
+            // lblSearchedAddress
+            // 
+            this.lblSearchedAddress.AutoSize = true;
+            this.lblSearchedAddress.Location = new System.Drawing.Point(368, 21);
+            this.lblSearchedAddress.Name = "lblSearchedAddress";
+            this.lblSearchedAddress.Size = new System.Drawing.Size(45, 13);
+            this.lblSearchedAddress.TabIndex = 5;
+            this.lblSearchedAddress.Text = "Address";
+            // 
+            // txtSearchedAddress
+            // 
+            this.txtSearchedAddress.Location = new System.Drawing.Point(419, 18);
+            this.txtSearchedAddress.Name = "txtSearchedAddress";
+            this.txtSearchedAddress.Size = new System.Drawing.Size(109, 20);
+            this.txtSearchedAddress.TabIndex = 4;
+            // 
+            // lblSearchedLastName
+            // 
+            this.lblSearchedLastName.AutoSize = true;
+            this.lblSearchedLastName.Location = new System.Drawing.Point(184, 21);
+            this.lblSearchedLastName.Name = "lblSearchedLastName";
+            this.lblSearchedLastName.Size = new System.Drawing.Size(58, 13);
+            this.lblSearchedLastName.TabIndex = 3;
+            this.lblSearchedLastName.Text = "Last Name";
+            // 
+            // txtSearchedLastName
+            // 
+            this.txtSearchedLastName.Location = new System.Drawing.Point(248, 18);
+            this.txtSearchedLastName.Name = "txtSearchedLastName";
+            this.txtSearchedLastName.Size = new System.Drawing.Size(109, 20);
+            this.txtSearchedLastName.TabIndex = 2;
+            // 
+            // lblSearchedFirstName
+            // 
+            this.lblSearchedFirstName.AutoSize = true;
+            this.lblSearchedFirstName.Location = new System.Drawing.Point(6, 21);
+            this.lblSearchedFirstName.Name = "lblSearchedFirstName";
+            this.lblSearchedFirstName.Size = new System.Drawing.Size(57, 13);
+            this.lblSearchedFirstName.TabIndex = 1;
+            this.lblSearchedFirstName.Text = "First Name";
+            // 
+            // txtSearchedFirstName
+            // 
+            this.txtSearchedFirstName.Location = new System.Drawing.Point(70, 18);
+            this.txtSearchedFirstName.Name = "txtSearchedFirstName";
+            this.txtSearchedFirstName.Size = new System.Drawing.Size(109, 20);
+            this.txtSearchedFirstName.TabIndex = 0;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(884, 462);
+            this.ClientSize = new System.Drawing.Size(884, 475);
+            this.Controls.Add(this.grbSearchForDebitor);
             this.Controls.Add(this.ms_main);
             this.Controls.Add(this.grbx_Data);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -204,10 +342,11 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.grbx_Data.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_Data)).EndInit();
             this.cntxms_GridMenu.ResumeLayout(false);
             this.ms_main.ResumeLayout(false);
             this.ms_main.PerformLayout();
+            this.grbSearchForDebitor.ResumeLayout(false);
+            this.grbSearchForDebitor.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -216,7 +355,6 @@
         #endregion
 
         private System.Windows.Forms.GroupBox grbx_Data;
-        private System.Windows.Forms.DataGridView dgv_Data;
         private System.Windows.Forms.ContextMenuStrip cntxms_GridMenu;
         private System.Windows.Forms.ToolStripMenuItem showAllDebitorsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem showAllCreditsToolStripMenuItem;
@@ -224,7 +362,6 @@
         private System.Windows.Forms.MenuStrip ms_main;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem debitorsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addNewDebitorToolStripMenuItem;
@@ -232,6 +369,22 @@
         private System.Windows.Forms.ToolStripMenuItem openNewCreditToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem paymentsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem passNewPaymentToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newDebitorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newCreditToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newPaymentToolStripMenuItem;
+        private BankManager.DebitorsGrid ucDebitorsGrid;
+        private BankManager.CreditsGrid ucCreditsGrid;
+        private BankManager.PaymentsGrid ucPaymentsGrid;
+        private System.Windows.Forms.GroupBox grbSearchForDebitor;
+        private System.Windows.Forms.Label lblSearchedFirstName;
+        private System.Windows.Forms.TextBox txtSearchedFirstName;
+        private System.Windows.Forms.Label lblSearchedPhone;
+        private System.Windows.Forms.TextBox txtSearchedPhone;
+        private System.Windows.Forms.Label lblSearchedAddress;
+        private System.Windows.Forms.TextBox txtSearchedAddress;
+        private System.Windows.Forms.Label lblSearchedLastName;
+        private System.Windows.Forms.TextBox txtSearchedLastName;
+        private System.Windows.Forms.Button btnSearchDebitors;
     }
 }
 

@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Entities;
 
-namespace BankManager
+namespace LoanManager
 {
-    interface ICreditRepositary
+    public interface ICreditRepository
     {
         IEnumerable<Credit> GetCredits();
 

@@ -7,5 +7,6 @@ D:\GitHub\BankManager\BankManager\obj\Debug\BankManager.csproj.GenerateResource.
 D:\GitHub\BankManager\BankManager\obj\Debug\BankManager.exe
 D:\GitHub\BankManager\BankManager\obj\Debug\BankManager.pdb
 D:\GitHub\BankManager\BankManager\obj\Debug\BankManager.NewDebitor.resources
-D:\GitHub\BankManager\BankManager\obj\Debug\BankManager.csprojResolveAssemblyReference.cache
 D:\GitHub\BankManager\BankManager\obj\Debug\BankManager.OpenCredit.resources
+D:\GitHub\BankManager\BankManager\obj\Debug\BankManager.NewPayment.resources
+D:\GitHub\BankManager\BankManager\obj\Debug\BankManager.csprojResolveAssemblyReference.cache

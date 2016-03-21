@@ -1,4 +1,4 @@
-﻿namespace BankManager
+﻿namespace LoanManager
 {
     partial class OpenCredit
     {
@@ -28,72 +28,76 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lblDebitors = new System.Windows.Forms.Label();
+            this.lblOpenDate = new System.Windows.Forms.Label();
+            this.lblAmount = new System.Windows.Forms.Label();
+            this.lblBalance = new System.Windows.Forms.Label();
+            this.lblState = new System.Windows.Forms.Label();
             this.dgvDebitors = new System.Windows.Forms.DataGridView();
             this.dtpCreditOpenDate = new System.Windows.Forms.DateTimePicker();
             this.txtCreditAmount = new System.Windows.Forms.TextBox();
             this.txtCreditBalance = new System.Windows.Forms.TextBox();
             this.txtCreditState = new System.Windows.Forms.TextBox();
             this.btnOpenNewCredit = new System.Windows.Forms.Button();
+            this.lblTypeId = new System.Windows.Forms.Label();
+            this.txtTypeId = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDebitors)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // lblDebitors
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(31, 32);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Debitors";
+            this.lblDebitors.AutoSize = true;
+            this.lblDebitors.Location = new System.Drawing.Point(31, 32);
+            this.lblDebitors.Name = "lblDebitors";
+            this.lblDebitors.Size = new System.Drawing.Size(46, 13);
+            this.lblDebitors.TabIndex = 0;
+            this.lblDebitors.Text = "Debitors";
             // 
-            // label2
+            // lblOpenDate
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(31, 143);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "OpenDate";
+            this.lblOpenDate.AutoSize = true;
+            this.lblOpenDate.Location = new System.Drawing.Point(31, 143);
+            this.lblOpenDate.Name = "lblOpenDate";
+            this.lblOpenDate.Size = new System.Drawing.Size(56, 13);
+            this.lblOpenDate.TabIndex = 1;
+            this.lblOpenDate.Text = "OpenDate";
             // 
-            // label3
+            // lblAmount
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(31, 180);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(43, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Amount";
+            this.lblAmount.AutoSize = true;
+            this.lblAmount.Location = new System.Drawing.Point(31, 180);
+            this.lblAmount.Name = "lblAmount";
+            this.lblAmount.Size = new System.Drawing.Size(43, 13);
+            this.lblAmount.TabIndex = 2;
+            this.lblAmount.Text = "Amount";
             // 
-            // label4
+            // lblBalance
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(31, 219);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(46, 13);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Balance";
+            this.lblBalance.AutoSize = true;
+            this.lblBalance.Location = new System.Drawing.Point(31, 219);
+            this.lblBalance.Name = "lblBalance";
+            this.lblBalance.Size = new System.Drawing.Size(46, 13);
+            this.lblBalance.TabIndex = 3;
+            this.lblBalance.Text = "Balance";
             // 
-            // label5
+            // lblState
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(31, 253);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(32, 13);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "State";
+            this.lblState.AutoSize = true;
+            this.lblState.Location = new System.Drawing.Point(31, 280);
+            this.lblState.Name = "lblState";
+            this.lblState.Size = new System.Drawing.Size(32, 13);
+            this.lblState.TabIndex = 4;
+            this.lblState.Text = "State";
             // 
             // dgvDebitors
             // 
             this.dgvDebitors.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDebitors.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDebitors.Location = new System.Drawing.Point(125, 12);
+            this.dgvDebitors.MultiSelect = false;
             this.dgvDebitors.Name = "dgvDebitors";
-            this.dgvDebitors.Size = new System.Drawing.Size(406, 113);
+            this.dgvDebitors.ReadOnly = true;
+            this.dgvDebitors.Size = new System.Drawing.Size(458, 113);
             this.dgvDebitors.TabIndex = 5;
             this.dgvDebitors.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDebitors_CellEnter);
             // 
@@ -111,6 +115,7 @@
             this.txtCreditAmount.Name = "txtCreditAmount";
             this.txtCreditAmount.Size = new System.Drawing.Size(147, 20);
             this.txtCreditAmount.TabIndex = 7;
+            this.txtCreditAmount.TextChanged += new System.EventHandler(this.txtCreditAmount_TextChanged);
             // 
             // txtCreditBalance
             // 
@@ -122,15 +127,16 @@
             // 
             // txtCreditState
             // 
-            this.txtCreditState.Location = new System.Drawing.Point(125, 250);
+            this.txtCreditState.Location = new System.Drawing.Point(125, 277);
             this.txtCreditState.Name = "txtCreditState";
             this.txtCreditState.ReadOnly = true;
             this.txtCreditState.Size = new System.Drawing.Size(147, 20);
             this.txtCreditState.TabIndex = 9;
+            this.txtCreditState.Text = "Active";
             // 
             // btnOpenNewCredit
             // 
-            this.btnOpenNewCredit.Location = new System.Drawing.Point(431, 270);
+            this.btnOpenNewCredit.Location = new System.Drawing.Point(483, 270);
             this.btnOpenNewCredit.Name = "btnOpenNewCredit";
             this.btnOpenNewCredit.Size = new System.Drawing.Size(100, 27);
             this.btnOpenNewCredit.TabIndex = 10;
@@ -138,22 +144,40 @@
             this.btnOpenNewCredit.UseVisualStyleBackColor = true;
             this.btnOpenNewCredit.Click += new System.EventHandler(this.btnOpenNewCredit_Click);
             // 
+            // lblTypeId
+            // 
+            this.lblTypeId.AutoSize = true;
+            this.lblTypeId.Location = new System.Drawing.Point(31, 249);
+            this.lblTypeId.Name = "lblTypeId";
+            this.lblTypeId.Size = new System.Drawing.Size(40, 13);
+            this.lblTypeId.TabIndex = 11;
+            this.lblTypeId.Text = "TypeId";
+            // 
+            // txtTypeId
+            // 
+            this.txtTypeId.Location = new System.Drawing.Point(125, 246);
+            this.txtTypeId.Name = "txtTypeId";
+            this.txtTypeId.Size = new System.Drawing.Size(147, 20);
+            this.txtTypeId.TabIndex = 12;
+            // 
             // OpenCredit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(544, 309);
+            this.ClientSize = new System.Drawing.Size(595, 333);
+            this.Controls.Add(this.txtTypeId);
+            this.Controls.Add(this.lblTypeId);
             this.Controls.Add(this.btnOpenNewCredit);
             this.Controls.Add(this.txtCreditState);
             this.Controls.Add(this.txtCreditBalance);
             this.Controls.Add(this.txtCreditAmount);
             this.Controls.Add(this.dtpCreditOpenDate);
             this.Controls.Add(this.dgvDebitors);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblState);
+            this.Controls.Add(this.lblBalance);
+            this.Controls.Add(this.lblAmount);
+            this.Controls.Add(this.lblOpenDate);
+            this.Controls.Add(this.lblDebitors);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "OpenCredit";
@@ -167,16 +191,18 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblDebitors;
+        private System.Windows.Forms.Label lblOpenDate;
+        private System.Windows.Forms.Label lblAmount;
+        private System.Windows.Forms.Label lblBalance;
+        private System.Windows.Forms.Label lblState;
         private System.Windows.Forms.DataGridView dgvDebitors;
         private System.Windows.Forms.DateTimePicker dtpCreditOpenDate;
         private System.Windows.Forms.TextBox txtCreditAmount;
         private System.Windows.Forms.TextBox txtCreditBalance;
         private System.Windows.Forms.TextBox txtCreditState;
         private System.Windows.Forms.Button btnOpenNewCredit;
+        private System.Windows.Forms.Label lblTypeId;
+        private System.Windows.Forms.TextBox txtTypeId;
     }
 }

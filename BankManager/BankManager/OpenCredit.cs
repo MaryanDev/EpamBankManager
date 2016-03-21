@@ -8,14 +8,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Entities;
+using BankManager.Code;
 
-namespace BankManager
+namespace LoanManager
 { 
     public partial class OpenCredit : Form
     {
         private readonly string _connectionString;
         private SqlDebitorRepository _debitorRepo;
-        private SqlCreditRepositary _creditRepo;
+        private SqlCreditRepository _creditRepo;
         private int _currentDebitorId;
 
         public OpenCredit()
@@ -24,7 +26,7 @@ namespace BankManager
 
             _connectionString = ConfigurationManager.ConnectionStrings["ConnectionToBank"].ConnectionString;
             _debitorRepo = new SqlDebitorRepository(_connectionString);
-            _creditRepo = new SqlCreditRepositary(_connectionString);
+            _creditRepo = new SqlCreditRepository(_connectionString);
 
             dgvDebitors.RowHeadersVisible = false;
         }
@@ -36,26 +38,33 @@ namespace BankManager
 
         private void btnOpenNewCredit_Click(object sender, EventArgs e)
         {
-            Credit newCredit = new Credit
+            try
             {
-                DebitorId = _currentDebitorId,
-                OpenDate = dtpCreditOpenDate.Value,
-                Amount = Convert.ToDecimal(txtCreditAmount.Text),
-            };
+                Credit newCredit = new Credit
+                {
+                    DebitorId = _currentDebitorId,
+                    OpenDate = dtpCreditOpenDate.Value,
+                    Amount = Convert.ToDecimal(txtCreditAmount.Text),
+                    TypeId = int.Parse(txtTypeId.Text),
+                    UserId = CurrentUser.Id
+                };
 
-            if(_creditRepo.OpenNewCredit(newCredit) != -1)
-            {
-                this.DialogResult = DialogResult.OK;
+                DialogResult = _creditRepo.OpenNewCredit(newCredit) != -1 ? DialogResult.OK : DialogResult.No;
             }
-            else
+            catch
             {
-                this.DialogResult = DialogResult.No;
+                DialogResult = DialogResult.No;
             }
         }
 
         private void dgvDebitors_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
             _currentDebitorId = Convert.ToInt32(dgvDebitors.Rows[e.RowIndex].Cells["Id"].Value.ToString());
+        }
+
+        private void txtCreditAmount_TextChanged(object sender, EventArgs e)
+        {
+            txtCreditBalance.Text = txtCreditAmount.Text;
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace BankManager
+﻿namespace LoanManager
 {
     partial class NewDebitor
     {
@@ -32,9 +32,11 @@
             this.txt_PhoneNumber = new System.Windows.Forms.TextBox();
             this.txt_LastName = new System.Windows.Forms.TextBox();
             this.btn_addNewDebitor = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblFirstName = new System.Windows.Forms.Label();
+            this.lblLastName = new System.Windows.Forms.Label();
+            this.lblPhoneNumber = new System.Windows.Forms.Label();
+            this.lblAddress = new System.Windows.Forms.Label();
+            this.txtAddress = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // txt_FirstName
@@ -47,7 +49,7 @@
             // 
             // txt_PhoneNumber
             // 
-            this.txt_PhoneNumber.Location = new System.Drawing.Point(143, 106);
+            this.txt_PhoneNumber.Location = new System.Drawing.Point(143, 138);
             this.txt_PhoneNumber.MaxLength = 12;
             this.txt_PhoneNumber.Name = "txt_PhoneNumber";
             this.txt_PhoneNumber.Size = new System.Drawing.Size(169, 20);
@@ -63,7 +65,7 @@
             // 
             // btn_addNewDebitor
             // 
-            this.btn_addNewDebitor.Location = new System.Drawing.Point(237, 140);
+            this.btn_addNewDebitor.Location = new System.Drawing.Point(237, 164);
             this.btn_addNewDebitor.Name = "btn_addNewDebitor";
             this.btn_addNewDebitor.Size = new System.Drawing.Size(75, 23);
             this.btn_addNewDebitor.TabIndex = 3;
@@ -71,41 +73,60 @@
             this.btn_addNewDebitor.UseVisualStyleBackColor = true;
             this.btn_addNewDebitor.Click += new System.EventHandler(this.btn_addNewDebitor_Click);
             // 
-            // label1
+            // lblFirstName
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(20, 26);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(99, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Debitors First Name";
+            this.lblFirstName.AutoSize = true;
+            this.lblFirstName.Location = new System.Drawing.Point(20, 28);
+            this.lblFirstName.Name = "lblFirstName";
+            this.lblFirstName.Size = new System.Drawing.Size(99, 13);
+            this.lblFirstName.TabIndex = 4;
+            this.lblFirstName.Text = "Debitors First Name";
             // 
-            // label2
+            // lblLastName
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(20, 71);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(100, 13);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Debitors Last Name";
+            this.lblLastName.AutoSize = true;
+            this.lblLastName.Location = new System.Drawing.Point(20, 68);
+            this.lblLastName.Name = "lblLastName";
+            this.lblLastName.Size = new System.Drawing.Size(100, 13);
+            this.lblLastName.TabIndex = 5;
+            this.lblLastName.Text = "Debitors Last Name";
             // 
-            // label3
+            // lblPhoneNumber
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(20, 109);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(120, 13);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Debitors Phone Number";
+            this.lblPhoneNumber.AutoSize = true;
+            this.lblPhoneNumber.Location = new System.Drawing.Point(20, 141);
+            this.lblPhoneNumber.Name = "lblPhoneNumber";
+            this.lblPhoneNumber.Size = new System.Drawing.Size(120, 13);
+            this.lblPhoneNumber.TabIndex = 6;
+            this.lblPhoneNumber.Text = "Debitors Phone Number";
+            // 
+            // lblAddress
+            // 
+            this.lblAddress.AutoSize = true;
+            this.lblAddress.Location = new System.Drawing.Point(20, 108);
+            this.lblAddress.Name = "lblAddress";
+            this.lblAddress.Size = new System.Drawing.Size(87, 13);
+            this.lblAddress.TabIndex = 7;
+            this.lblAddress.Text = "Debitors Address";
+            // 
+            // txtAddress
+            // 
+            this.txtAddress.Location = new System.Drawing.Point(143, 104);
+            this.txtAddress.MaxLength = 100;
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(169, 20);
+            this.txtAddress.TabIndex = 8;
             // 
             // NewDebitor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(434, 172);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(434, 199);
+            this.Controls.Add(this.txtAddress);
+            this.Controls.Add(this.lblAddress);
+            this.Controls.Add(this.lblPhoneNumber);
+            this.Controls.Add(this.lblLastName);
+            this.Controls.Add(this.lblFirstName);
             this.Controls.Add(this.btn_addNewDebitor);
             this.Controls.Add(this.txt_LastName);
             this.Controls.Add(this.txt_PhoneNumber);
@@ -114,7 +135,6 @@
             this.MaximizeBox = false;
             this.Name = "NewDebitor";
             this.Text = "NewDebitor";
-            this.Load += new System.EventHandler(this.NewDebitor_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -126,8 +146,10 @@
         private System.Windows.Forms.TextBox txt_PhoneNumber;
         private System.Windows.Forms.TextBox txt_LastName;
         private System.Windows.Forms.Button btn_addNewDebitor;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblFirstName;
+        private System.Windows.Forms.Label lblLastName;
+        private System.Windows.Forms.Label lblPhoneNumber;
+        private System.Windows.Forms.Label lblAddress;
+        private System.Windows.Forms.TextBox txtAddress;
     }
 }
