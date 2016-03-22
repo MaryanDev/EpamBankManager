@@ -36,9 +36,12 @@ CREATE TABLE tblDebitors
 	PhoneNumber nvarchar(12) NOT NULL,
 	UserId int NOT NULL,
 	CONSTRAINT PK_tblDebitors_Id PRIMARY KEY (Id),
-	CONSTRAINT FK_tblDebitorsUserId_tblUserId FOREIGN KEY (UserId) REFERENCES tblUser(Id)
+	CONSTRAINT FK_tblDebitorsUserId_tblUserId FOREIGN KEY (UserId) REFERENCES tblUser(Id),
+	CONSTRAINT CK_CheckPhoneNumber CHECK (PhoneNumber LIKE '[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]')
 );
 GO
+
+
 
 CREATE TABLE tblCredits
 (
@@ -53,7 +56,7 @@ CREATE TABLE tblCredits
 	CONSTRAINT PK_tblCredits_Id PRIMARY KEY (Id),
 	CONSTRAINT FK_tblCreditsDebitorId_tblDebitorsId FOREIGN KEY (DebitorId) REFERENCES tblDebitors(Id),
 	CONSTRAINT FK_tblCreditsTypeId_tblTypeOfCreditsId FOREIGN KEY (TypeId) REFERENCES tblTypeOfCredit(Id),
-	CONSTRAINT CK_CheckAmountOfCredit CHECK (Amount > 1000),
+	CONSTRAINT CK_CheckAmountOfCredit CHECK (Amount > 1000 AND Balance >= 0),
 	CONSTRAINT FK_tblCreditsUserId_tblUserId FOREIGN KEY (UserId) REFERENCES tblUser(Id)
 );
 GO

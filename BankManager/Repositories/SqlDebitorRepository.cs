@@ -11,7 +11,7 @@ using System.IO;
 
 namespace Repositories
 {
-    public class SqlDebitorRepository : Repositories.SqlBaseRepository, IDebitorRepository
+    public class SqlDebitorRepository : SqlBaseRepository, IDebitorRepository
     {
         #region Private fields
         private const string spGetDebitorsQuery = "spGetDebitors";

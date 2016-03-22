@@ -121,9 +121,11 @@ BEGIN
 	BEGIN
 		--If credit exists we are trying to find out is payment date is not less then open credit date
 		DECLARE @creditDate datetime;
+		DECLARE @balance numeric(18, 4);
 		SELECT @creditDate = OpenDate FROM tblCredits WHERE Id = @creditID;
+		SELECT @balance = Balance FROM tblCredits WHERE Id = @creditId;
 
-		IF @paymentDate >= @creditDate AND @amount > 100
+		IF (@paymentDate >= @creditDate) AND (@amount > 100) AND (@balance - @amount >= 0)
 		BEGIN
 			--If payment date is bigger than open credit date we are passing new payment and return Id of new payment
 			INSERT INTO tblPayments(CreditId, PaymentDate, Amount, UserId)
@@ -132,11 +134,10 @@ BEGIN
 
 			--We need to update the balance of credit on which we were passing payment
 			UPDATE tblCredits SET Balance = Balance - @amount WHERE Id = @creditId;
-			DECLARE @balance numeric(18, 4);
-
+			
 			--If balance of credit is <= 0 it means that credit is repaid
 			SELECT @balance = Balance FROM tblCredits WHERE Id = @creditId;
-			IF(@balance <= 0)
+			IF(@balance = 0)
 			BEGIN
 				UPDATE tblCredits SET Balance = 0, [State] = 'Repaid' WHERE Id = @creditId;
 			END		

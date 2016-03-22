@@ -10,7 +10,7 @@ using System.IO;
 
 namespace Repositories
 {
-    public class SqlCreditRepository : Repositories.SqlBaseRepository, ICreditRepository
+    public class SqlCreditRepository : SqlBaseRepository, ICreditRepository
     {
         #region Private fields
         private const string spGetCreditsQuery = "spGetCredits";

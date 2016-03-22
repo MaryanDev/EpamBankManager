@@ -9,7 +9,7 @@ using System.IO;
 
 namespace Repositories
 {
-    public class SqlTypeOfCreditRepository : Repositories.SqlBaseRepository, ITypeOfCreditRepository
+    public class SqlTypeOfCreditRepository : SqlBaseRepository, ITypeOfCreditRepository
     {
         #region Private fields
         private const string spGetTypesOfCreditQuery = "spGetTypesOfCredit";
