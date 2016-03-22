@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="BankManager.Code.Encryptor" Collapsed="true">
+    <Position X="5.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>Encryptor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Repositories.SqlBaseRepository" Collapsed="true">
+    <Position X="5.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAICCAAAAAAAAA=</HashCode>
+      <FileName>SqlBaseRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Repositories.SqlCreditRepository" Collapsed="true">
+    <Position X="2.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAAAEAAAAAAAAAAAAAACAAAAAgAgAA=</HashCode>
+      <FileName>SqlCreditRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Repositories.SqlDebitorRepository" Collapsed="true">
+    <Position X="6.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAAAAAAAAAAAACACAAiAAAAAAAAAA=</HashCode>
+      <FileName>SqlDebitorRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Repositories.SqlPaymentRepository" Collapsed="true">
+    <Position X="4.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAQAEAAAAAAAAAAAAAAAAAAAAAAAAACAAEAAAAAAA=</HashCode>
+      <FileName>SqlPaymentRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Repositories.SqlTypeOfCreditRepository" Collapsed="true">
+    <Position X="5.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIAQAAAAAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>SqlTypeOfCreditRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Repositories.SqlUserRepository" Collapsed="true">
+    <Position X="3.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAIAA=</HashCode>
+      <FileName>SqlUserRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="Repositories.ICreditRepository" Collapsed="true">
+    <Position X="4.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>ICreditRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Repositories.IDebitorRepository" Collapsed="true">
+    <Position X="3.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAgAAAAAAAAAA=</HashCode>
+      <FileName>IDebitorRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Repositories.IPaymentRepository" Collapsed="true">
+    <Position X="6" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>IPaymentRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Repositories.ITypeOfCreditRepository" Collapsed="true">
+    <Position X="6.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ITypeOfCreditRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Repositories.IUserRepository" Collapsed="true">
+    <Position X="7.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAA=</HashCode>
+      <FileName>IUserRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

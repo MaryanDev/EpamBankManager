@@ -8,7 +8,7 @@ using Entities;
 using BankManager.Code;
 
 
-namespace LoanManager
+namespace Repositories
 {
     public partial class NewPayment : Form
     {

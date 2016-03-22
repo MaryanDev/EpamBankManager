@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using Entities;
 using System.IO;
 
-namespace LoanManager
+namespace Repositories
 {
     public class SqlCreditRepository : Repositories.SqlBaseRepository, ICreditRepository
     {

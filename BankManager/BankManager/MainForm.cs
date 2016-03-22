@@ -8,7 +8,7 @@ using System.Windows.Forms;
 using Entities;
 using Repositories;
 
-namespace LoanManager
+namespace Repositories
 {
     public partial class MainForm : Form
     {

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Entities;
 
-namespace LoanManager
+namespace Repositories
 {
     public interface IPaymentRepository
     {

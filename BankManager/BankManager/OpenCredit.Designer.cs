@@ -1,4 +1,4 @@
-﻿namespace LoanManager
+﻿namespace Repositories
 {
     partial class OpenCredit
     {
