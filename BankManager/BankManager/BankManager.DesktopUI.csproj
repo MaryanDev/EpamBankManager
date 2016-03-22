@@ -7,8 +7,8 @@
     <ProjectGuid>{F62D324C-72E0-4C27-9760-7E88B9B8F10B}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BankManager</RootNamespace>
-    <AssemblyName>BankManager</AssemblyName>
+    <RootNamespace>BankManager.DesktopUI</RootNamespace>
+    <AssemblyName>BankManager.DesktopUI</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -48,7 +48,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Code\CurrentUser.cs" />
-    <Compile Include="Code\Encryptor.cs" />
     <Compile Include="CreditsGrid.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -131,6 +130,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

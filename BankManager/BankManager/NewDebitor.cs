@@ -28,21 +28,22 @@ namespace LoanManager
 
         private void btn_addNewDebitor_Click(object sender, EventArgs e)
         {
-            Debitor newDebitor = new Debitor
+            try
             {
-                FirstName = txt_FirstName.Text,
-                LastName = txt_LastName.Text,
-                Address = txtAddress.Text,
-                PhoneNumber = txt_PhoneNumber.Text,
-                UserId = CurrentUser.Id
-            };
-            if(_debitorRepo.AddDebitor(newDebitor) != -1)
-            {
-                this.DialogResult = DialogResult.OK;
+                Debitor newDebitor = new Debitor
+                {
+                    FirstName = txt_FirstName.Text,
+                    LastName = txt_LastName.Text,
+                    Address = txtAddress.Text,
+                    PhoneNumber = txt_PhoneNumber.Text,
+                    UserId = CurrentUser.Id
+                };
+
+                DialogResult = _debitorRepo.AddDebitor(newDebitor) != -1 ? DialogResult.OK : DialogResult = DialogResult.No;
             }
-            else
+            catch
             {
-                this.DialogResult = DialogResult.No;
+                DialogResult = DialogResult.No;
             }
         }
     }
